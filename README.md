@@ -1,5 +1,9 @@
 *This project has been created as part of the 42 curriculum by gjuan-pa and iualkhim*
 
+<p align="center">
+  <img src="./assets/A-Maze-Ing_badge.png" alt="A-Maz-ing work_in_process maze" width="150"/>
+</p>
+
 ## Description
 
 The main goal of the `A-Maze-ing` project is to develop a program that generates mazes based on a configurable set of parameters, with the ability to visualize the maze structure and explore its paths.
