@@ -1,1 +1,12 @@
-.mypy_cache
+# Virtual Environment
+.venv/
+
+# Python
+__pycache__/
+
+# Type checking & Linting
+.mypy_cache/
+.flake8
+# OS & IDE
+.DS_Store
+.vscode/
