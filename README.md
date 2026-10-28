@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by gjuan-pa and iualkhim*
+*This project has been created as part of the 42 curriculum by iualkhim and ...*
 
 <p align="center">
   <img src="./assets/A-Maze-Ing_badge.png" alt="A-Maz-ing work_in_process maze" width="150"/>
@@ -19,9 +19,8 @@ This project is an exercise in **graph theory**, **pathfinding algorithms**, **d
 
 This project was developed in pairs as required by the 42 curriculum:
 
-- **Gerard Juan Parlorio (gjuan-pa)**:
-
 - **Julia Alkhimova (iualkhim)**:
+- **...**:
 
 
 ## Instructions
