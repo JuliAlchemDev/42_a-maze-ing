@@ -145,8 +145,8 @@ def build_maze(rows: list[str]) -> Grid:
             gx, gy = cell_to_grid(x, y)
             grid[gy][gx] = OPEN
             if (cells[y][x] & 2) == 0:
-                grid[gy][gx+1] = OPEN
+                grid[gy][gx + 1] = OPEN
             if (cells[y][x] & 4) == 0:
-                grid[gy+1][gx] = OPEN
+                grid[gy + 1][gx] = OPEN
 
     return grid
