@@ -1,12 +1,32 @@
-from maze_renderer import render_maze
+import random
+
+from maze_data import MazeData
+from maze_renderer import render_interface
+
+# TODO: replace mocks and regenerate() with parser, generator and solver
+
+MOCK_2X3 = MazeData(
+    start=(0, 0),  # get from config
+    end=(1, 2),  # get from config
+    rows=["D3", "96", "C7"],  # get from maze_generator
+    path="ESWSE"  # get from maze_solver
+)
+
+MOCK_10X8 = MazeData(
+    start=(0, 0),  # get from config
+    end=(9, 7),  # get from config
+    rows=[
+        "D539553953", "93C6D3C6BA", "AC5392952A",
+        "AD546EC3C6", "A955513AD3", "869396EA92",
+        "C56AC53C6A", "D55457C556"],  # get from maze_generator
+    path="EESENEEESENEESSSWNWWSESSSENESS"  # get from maze_solver
+)
 
 
-# class MazeData:
-#     def __init__(self, start, end, rows, path):
-#         self.start = start
-#         self.end = end
-#         self.rows = rows
-#         self.path = path
+def regenerate() -> MazeData:
+    print("TODO: regenerate maze data!")
+    maze = random.choice([MOCK_2X3, MOCK_10X8])
+    return maze
 
 
 def main() -> None:
@@ -25,31 +45,9 @@ def main() -> None:
     Raises:
     Returns: ...
     """
-    # maze2x3
-    # width = 2  # get from config
-    # height = 3  # get from config
-    start = (0, 0)  # get from config
-    end = (1, 2)  # get from config
-    rows = ["D3", "96", "C7"]  # get from maze_generator
-    path = "ESWSE"  # get from maze_solver
-
-    # maze2x3 = MazeData()
-
-    # maze10x8 = new MazeData()
-
-    # while True:
-    #     print("=== A-Maze-ing ===")
-    #     print("1. Re-generate a new maze")
-    #     print("2. Show / Hide the shortest path")
-    #     print("3. Switch the color theme")
-    #     print("4. Quit")
-    #     choice = int(input("Choice? (1-4): "))
-
-    #     if choice == 4:
-    #         sys.exit()
 
     try:
-        render_maze(start, end, rows, path)
+        render_interface(MOCK_2X3, regenerate)
     except Exception as error:
         print(f"\nError: {error}\n")
 
