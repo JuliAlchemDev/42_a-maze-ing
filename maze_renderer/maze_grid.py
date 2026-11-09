@@ -3,6 +3,12 @@ from .constants import OPEN, WALL, PATH, MOVES
 Grid = list[list[int]]
 
 
+def maze_size(rows: list[str]) -> tuple[int, int]:
+    height = len(rows)
+    width = len(rows[0])
+    return width, height
+
+
 def build_grid(width: int, height: int) -> Grid:
     """
     Create a grid with all walls raised.

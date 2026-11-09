@@ -1,7 +1,10 @@
 import time
 
 from .constants import WALL, START, END, PATH
-from .maze_grid import build_grid, build_maze, set_cell_value, set_path
+from .maze_grid import (
+    maze_size, build_grid,
+    build_maze, set_cell_value,
+    set_path)
 from .style import RESET, BG_CLR, WALL_CLR, START_CLR, END_CLR, PATH_CLR, bg
 
 
@@ -30,7 +33,11 @@ def render_grid(maze_grid: list[list[int]]) -> None:
         print()
 
 
-def render_maze() -> None:
+def render_maze(
+        start: tuple[int, int],
+        end: tuple[int, int],
+        rows: list[str],
+        path: str) -> None:
     """
     Build the maze step by step and show each stage in the terminal.
 
@@ -43,12 +50,7 @@ def render_maze() -> None:
     === === END TODO === ===
 
     """
-    width = 2  # get from config
-    height = 3  # get from config
-    start = (0, 0)  # get from config
-    end = (1, 2)  # get from config
-    rows = ["D3", "96", "C7"]  # get from maze_generator
-    path = "ESWSE"  # get from maze_solver
+    width, height = maze_size(rows)
 
     grid = build_grid(width, height)
     render_grid(grid)
