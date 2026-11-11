@@ -8,6 +8,25 @@ class Maze():
     end: tuple[int, int]
     sign_42: list[Cell]
 
+    def print_maze_debug(self):
+        pass
+
+    def generate_random_no_logic(self):
+        # TODO: Generate coherence
+        pass
+
+    def generate_empty_maze(self):
+        pass
+
+    def insert_42_signature(self):
+        pass
+
+    def generate_correct_path(self):
+        pass
+
+    def fill_maze(self, use_logic: bool = False):
+        pass
+
 
 
 if __name__ == "__main__":
