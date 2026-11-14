@@ -1,0 +1,42 @@
+WIDTH=20
+HEIGHT=15
+ENTRY=0,0
+EXIT=19,14
+OUTPUT_FILE=maze.txt
+PERFECT=True
+
+# You may add additional keys (e.g., seed, algorithm, display mode) if useful.
+
+
+# IV.4 Maze Requirements
+# • The maze must be randomly generated, but reproducibility via a seed is required.
+# • Each cell of the maze has between 0 and 4 walls, at each cardinal point (North,
+# East, South, West).
+# • The maze must be valid, meaning:
+# ◦ Entry and exit exist and are different, inside the maze bounds.
+# ◦ The structure ensures full connectivity and no isolated cells (except the ’42’
+# pattern, see below).
+# ◦ As entry and exit are specific cells, there must be walls at the external borders.
+# ◦ Your generated data must be coherent: each neighbouring cell must have the
+# same wall if any. E.g., it is forbidden to have a first cell with a wall on the
+# east side, and the second cell behind that wall without a wall on the west side.
+# • The maze can’t have large open areas. Corridors can’t be wider than 2 cells.
+# For example, you can have 2x3 or 3x2 open area, but never a 3x3 open area.
+# • When visually represented (see below), the maze must contain a visible “42” drawn
+# by several fully closed cells.
+# • If the PERFECT flag is activated, the maze must contain exactly one pathbetween
+# the entry and the exit (i.e., it must be a perfect maze: no loops at all).
+# • If the PERFECT flag is notactivated (the default), the maze must instead be a board
+# directly usable by a Pac-Man-like game. Concretely:
+# ◦ every corridor is reachable (full connectivity), so the whole board can be filled
+# with pac-gums and remains winnable;
+# ◦ the four corners and the centre are open corridors (the ghosts and super-pac-
+# gums sit in the corners, the player starts in the centre);
+# ◦ it offers at least two independent routes (loops), so that a chased player
+# always has an alternative (a perfect maze, or a perfect maze with merely one
+# wall removed (a single loop), is therefore not acceptable in this mode);
+# ◦ dead-endsshouldstayrare(acouplearetolerated); aboardwithnodead-end
+# at all is the ideal and is rewarded as a bonus (see the Bonuses chapter).
+# The “42” pattern may be omitted in case the maze size does not allow
+# it (i.e. too small). Print an error message on the console in that
+# case.
