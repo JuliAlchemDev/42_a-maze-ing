@@ -91,3 +91,32 @@ def text(color: tuple[int, int, int]) -> str:
     """
     r, g, b = color
     return f"\33[38;2;{r};{g};{b}m"
+
+
+def paint(content: str, color: tuple[int, int, int]) -> str:
+    """
+    Wrap text in a foreground color.
+
+    Args:
+        content: text to color
+        color: (r, g, b) values from 0 to 255
+
+    Returns:
+        The text between the color escape and RESET
+    """
+    return f"{text(color)}{content}{RESET}"
+
+
+def block(color: tuple[int, int, int]) -> str:
+    """
+    Return a two-character block with the given background color.
+
+    Two characters wide so it looks square in the terminal.
+
+    Args:
+        color: (r, g, b) values from 0 to 255
+
+    Returns:
+        A colored block, ready to print
+    """
+    return f"{bg(color)}  {RESET}"
