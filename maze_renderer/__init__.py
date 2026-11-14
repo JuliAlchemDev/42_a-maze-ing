@@ -1,4 +1,4 @@
-from .renderer import render_maze
+from .renderer import render_interface
 
 
-__all__ = ["render_maze"]
+__all__ = ["render_interface"]
