@@ -5,6 +5,14 @@ from maze_renderer import render_interface
 
 # TODO: replace mocks and regenerate() with parser, generator and solver
 
+# === === TODO === ===
+#     1. Check this case!
+#         end = (0, 0)
+#         start = (1, 2)
+#     ...
+
+# === === END TODO === ===
+
 MOCK_2X3 = MazeData(
     start=(0, 0),  # get from config
     end=(1, 2),  # get from config
@@ -30,24 +38,8 @@ def regenerate() -> MazeData:
 
 
 def main() -> None:
-    """
-    === === TODO === ===
-
-    [] - parse config.txt
-    [] - generate maze
-    [] - resolve maze
-    [] - render maze
-    ...
-    === === END TODO === ===
-
-    Load the configuration and handle related errors.
-
-    Raises:
-    Returns: ...
-    """
-
     try:
-        render_interface(MOCK_2X3, regenerate)
+        render_interface(MOCK_10X8, regenerate)
     except Exception as error:
         print(f"\nError: {error}\n")
 
