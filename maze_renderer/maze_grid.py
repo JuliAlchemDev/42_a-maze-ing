@@ -67,12 +67,17 @@ def set_cell_value(
         value: value to store (e.g. START, END, PATH)
 
     Returns:
-        The same grid, modified in place, with the value set
+        A new grid with the value set
     """
+    # x, y = coords
+    # gx, gy = cell_to_grid(x, y)
+    # grid[gy][gx] = value
+    # return grid
     x, y = coords
     gx, gy = cell_to_grid(x, y)
-    grid[gy][gx] = value
-    return grid
+    new_grid = [row[:] for row in grid]
+    new_grid[gy][gx] = value
+    return new_grid
 
 
 def set_path(
@@ -92,18 +97,28 @@ def set_path(
         path: moves as a string of N, E, S, W (e.g. "ESWSE")
 
     Returns:
-        The same grid, modified in place, with PATH values set
+        A new grid with PATH values set
     """
+    # x, y = cell_to_grid(start[0], start[1])
+    # moves = [MOVES[way] for way in path]
+    # for step_x, step_y in moves:
+    #     for _ in range(2):
+    #         x += step_x
+    #         y += step_y
+    #         if (grid[y][x] == OPEN):
+    #             grid[y][x] = PATH
+
+    # return grid
+    new_grid = [row[:] for row in grid]
     x, y = cell_to_grid(start[0], start[1])
-    moves = [MOVES[way] for way in path]
-    for step_x, step_y in moves:
+    for way in path:
+        step_x, step_y = MOVES[way]
         for _ in range(2):
             x += step_x
             y += step_y
-            if (grid[y][x] == OPEN):
-                grid[y][x] = PATH
-
-    return grid
+            if new_grid[y][x] == OPEN:
+                new_grid[y][x] = PATH
+    return new_grid
 
 
 def hex_to_digit(maze: list[str]) -> Grid:
