@@ -35,15 +35,15 @@ def to_bool(key: str, value: str) -> bool:
 def convert_data(data: dict[str, str]) -> dict[str, Any]:
     converted: dict[str, Any] = {}
     for key, value in data.items():
+        name = key.lower()
         if key in ("WIDTH", "HEIGHT", "SEED"):
-            converted[key] = to_int(key, value)
+            converted[name] = to_int(key, value)
 
         elif key in ("ENTRY", "EXIT"):
-            converted[key] = to_coords(key, value)
+            converted[name] = to_coords(key, value)
 
         elif key == "PERFECT":
-            converted[key] = to_bool(key, value)
+            converted[name] = to_bool(key, value)
         else:
-            converted[key] = value
-
+            converted[name] = value
     return converted
