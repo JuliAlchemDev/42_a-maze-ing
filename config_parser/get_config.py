@@ -1,18 +1,17 @@
 import sys
-
+from typing import Any
+from .convert import convert_data
+from .errors import ConfigError
+from .validate import ValidateConfig
 
 REQUIRED_KEYS = ["WIDTH", "HEIGHT", "ENTRY", "EXIT", "OUTPUT_FILE", "PERFECT"]
 OPTIONAL_KEYS = ["SEED", "ALGORITHM", "MODE"]
 
 
-class ConfigError(Exception):
-    """Exception raised for configuration parsing errors."""
-    pass
-
-
 def validate_keys(config_keys: list):
     """
-    === TODO: Validate key format and ensure only required or optional keys are present. ===
+    === TODO: Validate key format and ensure
+    only required or optional keys are present. ===
 
     Validate that all required configuration keys are present.
 
@@ -22,14 +21,13 @@ def validate_keys(config_keys: list):
     Returns:
         ...
     """
-    missing_keys = set(REQUIRED).difference(set(config_keys))
+    missing_keys = set(REQUIRED_KEYS).difference(set(config_keys))
     if missing_keys:
         missing_keys_str = ", ".join(missing_keys)
         raise ConfigError(
                     f"missing data!\n"
                     f"REQUIRED: {missing_keys_str}"
                     )
-    print(config_keys)
 
 
 def parse_config(content: str):
@@ -48,7 +46,7 @@ def parse_config(content: str):
 
     lines = content.split("\n")
 
-    config_data = {}
+    config_data: dict[str, Any] = {}
     for line in lines:
         if line == "" or line[0] == "#":
             continue
@@ -73,7 +71,10 @@ def parse_config(content: str):
 
     config_keys = [key for key in config_data]
     validate_keys(config_keys)
-    # print(names_list)
+
+    config_data = convert_data(config_data)
+    valid_data = ValidateConfig(**config_data)
+    print(valid_data)
 
 
 def load_config():
