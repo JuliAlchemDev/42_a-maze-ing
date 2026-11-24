@@ -1,5 +1,3 @@
-import random as rand
-
 class Cell():
     start: bool
     end: bool
@@ -14,11 +12,13 @@ class Cell():
     y_limit: int
     walls: dict[str, int]
     times_configured: int
+    coherence_applied: bool
 
     def __init__(self, x: int, y: int, walls: dict[str, int], height: int,
                  width: int, start: bool, end: bool, mark_42: bool) -> None:
         self.x = x
         self.y = y
+        self.coherence_applied = False
         self.hex_rep = ""
         self.x_limit = 1 if x == 0 else ( -1 if x >= width else 0)
         """
@@ -128,3 +128,8 @@ class Cell():
 
     def is_end(self) -> bool:
         return self.end
+
+    def get_hexa_test(self):
+        # TODO: Get the bitmap of the doors and cell and make a simple switch case to return the hexa value to the tester
+        # bitmap = [1,'A']
+        # return bitmap[1]
