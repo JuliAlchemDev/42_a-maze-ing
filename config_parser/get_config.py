@@ -1,5 +1,8 @@
 import sys
 from typing import Any
+
+from pydantic import ValidationError
+
 from .convert import convert_data
 from .errors import ConfigError
 from .validate import ValidateConfig
@@ -73,7 +76,19 @@ def parse_config(content: str):
     validate_keys(config_keys)
 
     config_data = convert_data(config_data)
-    valid_data = ValidateConfig(**config_data)
+
+    try:
+        valid_data = ValidateConfig(**config_data)
+    except ValidationError as error:
+        for err in error.errors():
+            err_key = str(err["loc"][0]).capitalize()
+            err_msg = err["msg"].replace("Input ", "")
+            err_value = err["input"]
+
+            raise ConfigError(
+                f"{err_key} {err_msg}\n"
+                f"  Received: {err_value}")
+
     print(valid_data)
 
 
