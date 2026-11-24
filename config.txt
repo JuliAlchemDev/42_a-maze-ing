@@ -4,5 +4,13 @@ WIDTH=20
 HEIGHT=15
 ENTRY=0,0
 EXIT=19,14
+# Check case ""
 OUTPUT_FILE=maze.txt
 PERFECT=True
+
+# Optional: color theme for the maze display.
+# Available: default, dracula, nord, gruvbox, solarized, monokai
+# If omitted, "default" is used.
+
+# THEME=dracula
+
